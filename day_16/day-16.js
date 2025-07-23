@@ -168,3 +168,6 @@ for (let user in parsedTxt) {
 }
 
 console.log(`${mostSkilledPerson} has the most skills.`);
+
+//=======================================================================================================
+
