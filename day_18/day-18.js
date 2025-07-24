@@ -40,17 +40,3 @@ const fetchData = async () => {
 console.log('===== async and await')
 fetchData()
 
-
-
-const countriesAPI2 = 'https://restcountries.com/v3.1/all?fields=area';
-const fetchCountriesData2 = async () => {
-  try {
-    const response = await fetch(countriesAPI2)
-    const countries2 = await response.json()
-    console.log(countries2)
-  } catch (err) {
-    console.error(err)
-  }
-}
-console.log('===== async and await')
-fetchCountriesData()
