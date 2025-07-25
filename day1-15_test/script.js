@@ -49,14 +49,14 @@
 
 // Q7 : Write a function that returns "Adult" if age >= 18, "Teenager" if 13–17, and "Child" otherwise.
 
-// let age = prompt('enter your age here :', '')
-// if (age >= 18) {
-//     console.log('adult')
-// } else if (age >= 13) {
-//     console.log('teenager')
-// } else {
-//     console.log('child')
-// }
+let age = prompt('enter your age here :', '')
+if (age >= 18) {
+    console.log('adult')
+} else if (age >= 13) {
+    console.log('teenager')
+} else {
+    console.log('child')
+}
 
 // Q8 : How does a switch-case statement work in JavaScript?
 
@@ -135,8 +135,18 @@ function stringReversed() {
     console.log(stringArr)
     stringArr.reverse()
     let reversedString = stringArr.toString()
-    console.log(reversedString) 
+    console.log(reversedString)
 }
 stringReversed()
 
+// Q15 : cloneing object without affecting the original
 
+let student = {
+    name: 'asad',
+    age: '18',
+    country: 'pakistan',
+    city: 'lahore'
+}
+let studentClone = Object.assign({}, student) 
+console.log(student)
+console.log(studentClone)
