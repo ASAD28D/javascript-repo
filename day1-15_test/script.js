@@ -171,6 +171,21 @@ console.log(doubled)
 
 // filter() :
 let evens = number.filter(function (num) {
-  return  num % 2 === 0;
+    return num % 2 === 0;
 })
 console.log(evens)
+
+// Q18 : How are Set and Map different from Arrays and Objects?
+
+// sets and maps are diffrent from arrays and obejsts in this way that sets do let any value be reapeated
+
+// Q19 : Use destructuring to extract the second element from an array and the name property from an object.
+
+// array destructuring
+let [, second] = number;
+console.log(second);
+
+// Object destructuring 
+let {name} = student;
+console.log(name);  
+
