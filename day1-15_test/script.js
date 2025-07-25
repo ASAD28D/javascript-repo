@@ -49,7 +49,7 @@
 
 // Q7 : Write a function that returns "Adult" if age >= 18, "Teenager" if 13–17, and "Child" otherwise.
 
-let age = prompt('enter your age here :', '')
+let age = 12
 if (age >= 18) {
     console.log('adult')
 } else if (age >= 13) {
@@ -147,6 +147,30 @@ let student = {
     country: 'pakistan',
     city: 'lahore'
 }
-let studentClone = Object.assign({}, student) 
+let studentClone = Object.assign({}, student)
 console.log(student)
 console.log(studentClone)
+
+// Q16 : difference between dot notation and bracket notation when accessing object properties
+
+// the diffrece bitween them is that while using dot notation if we have a property that has a space in it
+// it will not work for that proprtty but if we use bracket notation then we will be able to access that 
+// property.
+
+// Q17 What is a higher-order function? Give two examples using map() and filter().
+
+// a higher-order function takes another function as an argument following is the examples of using map()
+// and fillter()
+
+// map() : 
+let number = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+let doubled = number.map(function (num) {
+    return num * 2
+})
+console.log(doubled)
+
+// filter() :
+let evens = number.filter(function (num) {
+  return  num % 2 === 0;
+})
+console.log(evens)
