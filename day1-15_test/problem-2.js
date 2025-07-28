@@ -30,22 +30,14 @@ getbook()
 let avalibleBooks = [];
 let unavalibleBooks = [];
 
-// for (let book of booksarr) {
-//     if (book.isAvailable === true) {
-//         avalibleBooks.push(book);
-//     } else {
-//         unavalibleBooks.push(book)
-//     }
-//     // console.log(book)
-// }
-
 booksarr.forEach(function (book) {
     if (book.isAvailable === true) {
         avalibleBooks.push(book);
     } else {
         unavalibleBooks.push(book)
     }
-})
+});
+
 
 console.log(`avalibe books : ${avalibleBooks}`)
 console.log(`unavalibe books : ${unavalibleBooks}`)
