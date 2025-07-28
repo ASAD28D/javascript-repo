@@ -6,32 +6,64 @@ class book {
         this.genre = genre
         this.isAvailable = isAvailable
     }
+    printInfo() {
+        console.log(`Title: ${this.title}`);
+        console.log(`Author: ${this.author}`);
+        console.log(`Genre: ${this.genre}`);
+        console.log(`Available: ${this.isAvailable ? 'Yes' : 'No'}`);
+        console.log('--------------------------');
+    }
 }
 
 let booksarr = [
     new book('peer-e-kamil', 'umerah ahmed', 'novel', true),
-    new book('rich dad poor dad', 'robert kiyosaki', 'persnol finance', false),
-    new book('jannat k pattay', 'nimrah ahmed', 'novel', false),
+    new book('rich dad poor dad', 'robert kiyosaki', 'persnol finance', true),
+    new book('jannat k pattay', 'nimrah ahmed', 'novel', true),
     new book('the phychology of money', 'morgan housel', 'persnol finance', true)
 ]
 
-function getbook() {
-    let borrowedBook = 'peer-e-kamil'
-    if (borrowedBook === book.title) {
-        book.isAvailable === false
-        console.log('you can borrow the book')
+function borrowBook(title) {
+    let book = booksarr.find(b => b.title.toLowerCase() === title.toLowerCase());
+
+    if (!book) {
+        console.log(`Book titled "${title}" not found.`);
+        return;
     }
-    if (book.isAvailable === false) {
-        console.log('you can not borrow this book its already taken')
+
+    if (book.isAvailable) {
+        book.isAvailable = false;
+        console.log(`You have borrowed "${book.title}".`);
+    } else {
+        console.log(`"${book.title}" has been already borrowed`);
     }
 }
-getbook()
+
+function returnBook(title) {
+    let book = booksarr.find(b => b.title.toLowerCase() === title.toLowerCase());
+
+    if (!book) {
+        console.log(`Book titled "${title}" not found.`);
+        return;
+    }
+
+    if (book.isAvailable) {
+        console.log(`You have not borrowed "${book.title}". return the book you have borrowed`);
+    } else {
+        book.isAvailable = true;
+        console.log(`you have returned "${book.title}".`);
+    }
+}
+
+borrowBook('peer-e-kamil')
+returnBook('peer-e-kamil')
+borrowBook('rich dad poor dad')
+returnBook('rich dad poor dad')
 
 let avalibleBooks = [];
 let unavalibleBooks = [];
 
-booksarr.forEach(function (book) {
-    if (book.isAvailable === true) {
+booksarr.forEach(book => {
+    if (book.isAvailable) {
         avalibleBooks.push(book);
     } else {
         unavalibleBooks.push(book)
@@ -39,6 +71,16 @@ booksarr.forEach(function (book) {
 });
 
 
-console.log(`avalibe books : ${avalibleBooks}`)
-console.log(`unavalibe books : ${unavalibleBooks}`)
+console.log('Available books:', avalibleBooks);
+console.log('Unavailable books:', unavalibleBooks);
 
+// using class method
+console.info('===================== books info =====================')
+// booksarr.forEach(book => book.printInfo());
+
+for (let { title, author, genre, isAvailable } of booksarr) {
+    console.log(`Title: ${title}`);
+    console.log(`Author: ${author}`);
+    console.log(`Genre: ${genre}`);
+    console.log(`Available: ${isAvailable ? 'Yes' : 'No'}`);
+}
