@@ -6,7 +6,7 @@
 // Odd numbers background is yellow
 // Prime numbers background is red
 
-let pageBody = document.querySelectorAll('.warapper')
+let pageBody = document.querySelectorAll('#warapper')
 let divContainer = document.createElement("div")
 divContainer.className = 'container'
 let list = document.createElement("ul")
@@ -54,8 +54,3 @@ pageBody.forEach(item => {
     item.style.fontFamily = 'sans-serif'
     item.appendChild(divContainer)
 })
-
-
-// list.forEach((item, i) => {
-
-//  })
