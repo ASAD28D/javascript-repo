@@ -23,6 +23,12 @@
         margin-right: 350px;
     }
 
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
 
     #weight-input {
         padding: 8px;
@@ -70,18 +76,20 @@
             <option value="MARS">MARS</option>
             <option value="VENUS">VENUS</option>
             <option value="JUPITER">JUPITER</option>
-            <option value="SATRUN">SATRUN</option>
+            <option value="SATURN">SATURN</option>
             <option value="PLUTO">PLUTO</option>
             <option value="MERCURY">MERCURY</option>
             <option value="URANUS">URANUS</option>
-            <option value="NAPTUNE">NAPTUNE</option>
+            <option value="NEPTUNE">NEPTUNE</option>
             <option value="MOON">MOON</option>
         </select>
         <button id="calculate-btn">calculate weight</button>
     </div>
     <div id="output-div">
-        <img src="moon-removebg-preview (1).png" alt="">
+        <img src="" alt="">
+        <div id="output-text"></div>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
