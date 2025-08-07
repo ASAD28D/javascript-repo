@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        font-family: sans-serif;
+        margin-left: 150px;
+        margin-right: 150px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    p {
+        color: rgb(53, 53, 53);
+    }
+
+    .heading {
+        font-size: 70px;
+        margin: 26px;
+    }
+
+    .skills-div {
+        background-color: #eddfde;
+        padding: 30px;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+    }
+
+    .skills-p {
+        font-size: 18px;
+        margin: 0px;
+        padding: 0px;
+        animation: slideIn 1.3s forwards;
+    }
+
+    .skills-p2 {
+        font-size: 28px;
+        font-weight:600;
+    }
+
+    @keyframes slideIn {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .para {
+        line-height: 30px;
+    }
+
+    .boxes-div {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .skill-box {
+        padding: 50px;
+        border: 1px solid rgb(126, 126, 126);
+    }
+
+    .skill-box:hover {
+        transform: scale(1.08);
+        background-color: #eddfde;
+        transition: 0.6s;
+    }
+</style>
+
+<body>
+    <p class="heading">Asabenah yetayeh</p>
+    <div class="skills-div">
+    </div>
+    <p class="para">I am Asabeneh Yetayeh. I am instructor, developer, motivator and content creator. I love educating
+        people and
+        creating educational materials. In January 2019, I also created a teaching material JavaScript For Everyone. In
+        December 2019, I created 30Days Of Python challenge and in January 2020 30 Days Of JavaScript challenge.
+    </p>
+    <div class="boxes-div">
+        <div class="skill-box">JAVASCRIPT FOR EVERYONE</div>
+        <div class="skill-box">30DAYS OF PYTHON</div>
+        <div class="skill-box">30DAYS OF JAVASCRIPT</div>
+    </div>
+    <p>the tech i teach <span class="skills-p2"></span></p>
+    <script src="day27.js"></script>
+</body>
+
+</html>

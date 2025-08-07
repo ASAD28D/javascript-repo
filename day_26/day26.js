@@ -60,41 +60,60 @@ for (let i = 0; i < countries.length; i++) {
     lowercaseCountries.push(countries[i].toLocaleLowerCase())
 }
 
-for (let country of lowercaseCountries) {
-    let countryBox = document.createElement("div")
-    let countryBoxP = document.createElement("p")
-    countryBox.style.backgroundImage = "url('map_image.jpg')"
-    countryBox.style.backgroundPosition = 'center'
-    countryBox.style.backgroundSize = 'cover'
-    countryBox.style.backgroundRepeat = "no-repeat";
-    countryBox.style.display = 'flex'
-    countryBox.style.justifyContent = 'center'
-    countryBox.style.width = '150px'
-    countryBox.style.marginLeft = '6px'
-    countryBox.style.marginRight = '6px'
-    countryBox.style.marginTop = '6px'
-    countryBox.style.marginBottom = '6px'
-    countryBox.style.border = '1px solid #e6e6e6ff'
-    countryBoxP.style.margin = '0px'
-    countryBoxP.style.width = '100px'
-    countryBoxP.style.paddingTop = '5px'
-    countryBoxP.style.paddingBottom = '5px'
-    countryBoxP.style.color = '#fbff19ff'
-    countryBoxP.style.fontWeight = 'bold'
-    countryBoxP.style.borderRadius = '10px'
-    countryBox.style.paddingTop = '55px'
-    countryBox.style.paddingBottom = '55px'
-    countryBoxP.textContent = country;
-    countryBox.appendChild(countryBoxP)
-    countryBoxDiv.appendChild(countryBox)
-    function orderReverse() {
-        lowercaseCountries.reverse()
-        console.log(lowercaseCountries)
+function renderCountries(countryList) {
+    countryBoxDiv.innerHTML = ""; // Clear existing boxes
+    for (let country of countryList) {
+        let countryBox = document.createElement("div")
+        let countryBoxP = document.createElement("p")
+        countryBox.style.backgroundImage = "url('map_image.jpg')"
+        countryBox.style.backgroundPosition = 'center'
+        countryBox.style.backgroundSize = 'cover'
+        countryBox.style.backgroundRepeat = "no-repeat";
+        countryBox.style.display = 'flex'
+        countryBox.style.justifyContent = 'center'
+        countryBox.style.width = '150px'
+        countryBox.style.margin = '6px'
+        countryBox.style.border = '1px solid #e6e6e6ff'
+        countryBox.style.paddingTop = '55px'
+        countryBox.style.paddingBottom = '55px'
+
+        countryBoxP.style.margin = '0px'
+        countryBoxP.style.width = '100px'
+        countryBoxP.style.paddingTop = '5px'
+        countryBoxP.style.paddingBottom = '5px'
+        countryBoxP.style.color = '#fbff19ff'
+        countryBoxP.style.fontWeight = 'bold'
+        countryBoxP.style.borderRadius = '10px'
         countryBoxP.textContent = country;
+
         countryBox.appendChild(countryBoxP)
         countryBoxDiv.appendChild(countryBox)
     }
 }
+
+// Initial render
+renderCountries(lowercaseCountries)
+
+let isReversed = false;
+const originalCountries = [...lowercaseCountries]; // keep a copy of original
+
+orderBtn.addEventListener('click', () => {
+    isReversed = !isReversed;
+
+    if (isReversed) {
+        orderBtn.textContent = 'Z-A';
+        orderBtn.style.backgroundColor = 'rgb(182, 104, 255)';
+        lowercaseCountries.reverse();
+        renderCountries(lowercaseCountries);
+    } else {
+        orderBtn.textContent = 'A-Z';
+        orderBtn.style.backgroundColor = 'blueviolet';
+        lowercaseCountries = [...originalCountries];
+        renderCountries(lowercaseCountries);
+    }
+});
+
+
 
 function startsWithSearch() {
     let searchResult = lowercaseCountries.filter(country => country.startsWith(input.value.toLocaleLowerCase()));
@@ -172,7 +191,10 @@ startWithBtn.addEventListener('click', () => {
 })
 
 searchAnyBtn.addEventListener('click', () => {
-
+    searchAnyBtn.style.backgroundColor = 'rgb(182, 104, 255)'
+    startWithBtn.style.backgroundColor = 'blueviolet'
+    input.removeEventListener('input', startsWithSearch)
+    input.addEventListener('input', anyWordSearch)
 })
 
 pageBody.forEach(item => {
