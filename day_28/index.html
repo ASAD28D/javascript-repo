@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+
+    .inputs-div {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    input {
+        padding: 15px;
+        border: 1px solid rgb(121, 121, 121);
+        outline: none;
+    }
+
+    button {
+        border: 1px solid rgb(121, 121, 121);
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <h1>30 Days Of Javascript Challange Leaderboard</h1>
+    <div class="inputs-div">
+        <input type="text" id="first-name-input" placeholder="First Name">
+        <input type="text" id="last-name-input" placeholder="Last Name">
+        <input type="text" id="country-input" placeholder="Country">
+        <input type="number" id="score-input" placeholder="Player Score">
+        <button>Add Player</button>
+    </div>
+    <script src="day28.js"></script>
+</body>
+
+</html>
