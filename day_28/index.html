@@ -9,7 +9,17 @@
 
 <style>
     body {
+        background-color: #1b1b1b;
+        color: white;
+    }
+
+    p {
+        margin: 0px;
+    }
+
+    .wrapper {
         display: flex;
+
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -24,28 +34,38 @@
         display: flex;
         justify-content: center;
         gap: 15px;
+        margin-bottom: 40px;
     }
 
     input {
         padding: 15px;
-        border: 1px solid rgb(121, 121, 121);
+        border: 1px solid #595959;
+        border-radius: 10px;
         outline: none;
+        background-color: #313131;
+        color: #bcbdbe;
     }
 
     button {
-        border: 1px solid rgb(121, 121, 121);
+        border: 1px solid #00b755;
         padding: 10px;
+        background-color: #163323;
+        color: #bcbdbe;
+        border-radius: 10px;
     }
 </style>
 
 <body>
-    <h1>30 Days Of Javascript Challange Leaderboard</h1>
-    <div class="inputs-div">
-        <input type="text" id="first-name-input" placeholder="First Name">
-        <input type="text" id="last-name-input" placeholder="Last Name">
-        <input type="text" id="country-input" placeholder="Country">
-        <input type="number" id="score-input" placeholder="Player Score">
-        <button>Add Player</button>
+    <div class="wrapper">
+        <h1>30 Days Of Javascript Challange Leaderboard</h1>
+        <div class="inputs-div">
+            <input type="text" id="first-name-input" placeholder="First Name">
+            <input type="text" id="last-name-input" placeholder="Last Name">
+            <input type="text" id="country-input" placeholder="Country">
+            <input type="number" id="score-input" placeholder="Player Score">
+            <button id="add-btn">Add Player</button>
+        </div>
+        <p class="error-text"></p>
     </div>
     <script src="day28.js"></script>
 </body>
