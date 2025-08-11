@@ -23,7 +23,7 @@ class player {
 }
 
 let playersArr = []
-// let time;
+
 addbtn.addEventListener('click', () => {
     let isValid = true;
     if (firstName.value === "" || lastName.value === "" || country.value == "" || score.value == "") {
@@ -35,10 +35,10 @@ addbtn.addEventListener('click', () => {
     }
     if (isValid) {
         playersArr.push(new player(firstName.value, lastName.value, country.value, score.value))
-        // firstName.value = ""
-        // lastName.value = ""
-        // country.value = ""
-        // score.value = ""
+        firstName.value = ""
+        lastName.value = ""
+        country.value = ""
+        score.value = ""
 
         playersContainer.innerHTML = "";
 
@@ -76,35 +76,65 @@ addbtn.addEventListener('click', () => {
             scoreP.style.width = '190px'
             scoreP.textContent = p.score
 
-            let playerBtn1 = document.createElement('div')
+            let playerBtn1 = document.createElement('button')
             playerBtn1.style.height = '40px'
             playerBtn1.style.width = '40px'
+            playerBtn1.style.display = 'flex'
+            playerBtn1.style.alignItems = 'center'
+            playerBtn1.style.justifyContent = 'center'
+            playerBtn1.style.textAlign = 'center'
+            playerBtn1.style.overflow = 'hidden'
+            playerBtn1.style.wordBreak = 'break-word'
             playerBtn1.style.marginTop = '7px'
             playerBtn1.style.marginRight = '7px'
             playerBtn1.style.borderRadius = '50%'
             playerBtn1.style.backgroundColor = '#322f16'
             playerBtn1.style.border = '1px solid #afa100'
+            let binIcon = document.createElement('i');
+            binIcon.className = "fa-solid fa-trash-can";
+            binIcon.style.color = '#e38991';
+            playerBtn1.appendChild(binIcon);
+            playerBtn1.addEventListener('click', () => {
+                playersArr = playersArr.filter(playerObj => playerObj !== p);
+                mainDiv.remove();
+            })
 
-            let playerBtn2 = document.createElement('div')
-            // playerBtn2.style.height = '40px'
-            // playerBtn2.style.width = '40px'
-            playerBtn2.style.padding = '7px'
+            let playerBtn2 = document.createElement('button')
+            playerBtn2.style.height = '40px'
+            playerBtn2.style.width = '40px'
+            playerBtn2.style.display = 'flex'
+            playerBtn2.style.alignItems = 'center'
+            playerBtn2.style.justifyContent = 'center'
+            playerBtn2.style.textAlign = 'center'
+            playerBtn2.style.overflow = 'hidden'
+            playerBtn2.style.wordBreak = 'break-word'
             playerBtn2.style.marginTop = '7px'
             playerBtn2.style.marginRight = '7px'
             playerBtn2.style.borderRadius = '50%'
             playerBtn2.textContent = '+5'
             playerBtn2.style.backgroundColor = '#322f16'
             playerBtn2.style.border = '1px solid #afa100'
+            playerBtn2.addEventListener('click', () => {
+                scoreP.textContent = Number(scoreP.textContent) + 5;
+            })
 
-            let playerBtn3 = document.createElement('div')
-            // playerBtn3.style.height = '40px'
-            // playerBtn3.style.width = '40px'
-            playerBtn3.style.padding = '7px'
+            let playerBtn3 = document.createElement('button')
+            playerBtn3.style.height = '40px'
+            playerBtn3.style.width = '40px'
+            playerBtn3.style.display = 'flex'
+            playerBtn3.style.alignItems = 'center'
+            playerBtn3.style.justifyContent = 'center'
+            playerBtn3.style.textAlign = 'center'
+            playerBtn3.style.overflow = 'hidden'
+            playerBtn3.style.wordBreak = 'break-word'
             playerBtn3.style.marginTop = '7px'
             playerBtn3.style.borderRadius = '50%'
             playerBtn3.textContent = '-5'
             playerBtn3.style.backgroundColor = '#322f16'
             playerBtn3.style.border = '1px solid #afa100'
+            playerBtn3.addEventListener('click', () => {
+                scoreP.textContent = Number(scoreP.textContent) - 5;
+            })
 
             nameDiv.appendChild(nameP)
             nameDiv.appendChild(timeP)
@@ -116,12 +146,8 @@ addbtn.addEventListener('click', () => {
             mainDiv.appendChild(playerBtn3)
 
             playersContainer.appendChild(mainDiv)
-
         })
 
     }
 })
 
-
-//
-// 
